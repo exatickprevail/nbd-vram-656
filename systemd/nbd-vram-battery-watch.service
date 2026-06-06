@@ -1,0 +1,7 @@
+[Unit]
+Description=nbd-vram battery threshold watch
+After=vram-swap-nbd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/nbd-vram-power-check.sh
