@@ -1,0 +1,4 @@
+# Trigger power state check when AC adapter is plugged or unplugged.
+# ATTR{type}=="Mains" matches AC0, AC, ADP1, etc. across hardware.
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", \
+    RUN+="/usr/bin/systemctl --no-block start nbd-vram-power-check.service"
